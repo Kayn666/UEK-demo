@@ -1,0 +1,30 @@
+{
+  "id": "1917945",
+  "name": "first",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8106278",
+      "name": "th_internet",
+      "font_class": "th_internet",
+      "unicode": "e6a2",
+      "unicode_decimal": 59042
+    },
+    {
+      "icon_id": "11372639",
+      "name": "爱心",
+      "font_class": "aixin",
+      "unicode": "e8ab",
+      "unicode_decimal": 59563
+    },
+    {
+      "icon_id": "15362375",
+      "name": "avatar06",
+      "font_class": "06",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    }
+  ]
+}

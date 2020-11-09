@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组  解决人类重复性，枯燥的劳动
+        // 一系列相关的数据存储到一个容器中
+
+        // 声明和定义方式
+        // var arr=[2,8,5,0,5,2,6,7,2];
+
+        // 取用数组中的数据
+        // console.log(arr[0])
+
+        // for(var i=0; i<arr.length; i++){
+        //     console.log(arr[i]);
+        // }
+
+        // 1.数组里面可以存放任何的数据类型
+        // 2.如果访问的下标超出数组的内容 ,访问到的值就是undefined
+        // 3.在数组里面是可以不写值，默认的值是undefined
+        // 4.如果在数组里再放数组，就会形成多维数组
+
+
+
+        // 函数  数组
+
+        // 1.写个函数，这个函数 数组去重
+
+        // function delReapte(arr){
+        //     var newarr=[]
+        //     for(var i=0;i<arr.length;i++){
+        //         var flag=true;
+        //         for(var j=0;j<newarr.length;j++){
+        //             if(arr[i]==newarr[j]){
+        //                 flag=false;
+        //                 break
+        //             }
+        //         }
+        //         if(flag){
+        //             newarr[newarr.length]=arr[i]
+        //         }
+        //     }
+        //     return newarr
+        // }
+
+        // var arr=[1,2,3,4,3,4,5,6,2,7,6]
+        // console.log(delReapte(arr))
+
+        // 2.写个函数，找出数组里的最大值
+
+        // var arr=[6,11,3,72,34,56,109];
+        // function max(arr){
+        //     if(!(arr instanceof Array)){
+        //         console.error("输入的类型不对");
+        //         return;
+        //     }
+        //     var temp = arr[0];
+        //     for(var i=1;i<arr.length;i++){
+        //         if(arr[i]>temp){
+        //             temp=arr[i];
+        //         }
+        //     }
+        //     return temp;
+        // }
+        // console.log(max(arr));
+
+        // 3.通过插入排序实现数组的从小到大排序
+        var arr = [98,88,5,66,49,66,109,55,33,6,2,1,6];
+        function insert(arr){
+            var currentVal,preIndex
+            for(var i=1;i<arr.length;i++){
+                currentVal=arr[i];
+                preIndex=i-1;
+                while(preIndex>=0 && arr[preIndex]>currentVal){
+                    arr[preIndex+1]=arr[preIndex]
+                    preIndex--
+                }
+                arr[preIndex+1]=currentVal
+            }
+            return arr
+        }
+        console.log(insert(arr))
+    </script>
+</body>
+</html>

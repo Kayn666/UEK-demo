@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则工具</title>
+    <style>
+        input{
+            width: 800px;
+            height: 50px;
+            font-size: 30px;
+        }
+        textarea{
+            width: 800px;
+            height: 100px;
+            font-size: 30px;
+        }
+        input[type="button"]{
+            width: 100px;
+            height: 50px;
+        }
+        .special{
+            border: 2px solid black;
+            height: 350px;
+            width: 1200px;
+        }
+        table{
+            border: black 1px solid;
+            border-collapse: collapse;
+            float: left;
+            margin: 5px 20px;
+        }
+        tr,td{
+            border: black 1px solid;
+        }
+    </style>
+</head>
+<body>
+    正则：<input type="text" name="reg" value="//"><br><br>
+    <span style="vertical-align: top;">字符串：</span>
+    <textarea name="str" id="" cols="50" rows="30"></textarea>
+    <br><br>
+    <input type="button" value="匹配" name="check">
+    <input type="button" value="清空" name="clear">
+    <br><br>
+    <div class="con">
+        匹配结果：
+    </div>
+    <br>
+    <div style="font-size: 20px;">注：</div>
+    <div class="special">
+    <table>
+        <thead>
+        <tr>
+        <th>原子</th>
+        <th>含义</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>\d</td>
+        <td>表示匹配1个0-9的数字 [0-9]</td>
+        </tr>
+        <tr>
+        <td>\D   [^0-9]</td>
+        <td>表示匹配除数字0-9以外的字符</td>
+        </tr>
+        <tr>
+        <td>\w</td>
+        <td>匹配数字、字母、下划线</td>
+        </tr>
+        <tr>
+        <td>\W</td>
+        <td>匹配除了数字、字母、下划线以外的字符</td>
+        </tr>
+        <tr>
+        <td>\s</td>
+        <td>匹配空格</td>
+        </tr>
+        <tr>
+        <td>\S</td>
+        <td>匹配非空格</td>
+        </tr>
+        <tr>
+        <td>.</td>
+        <td>查找单个字符，除了换行和行结束符</td>
+        </tr>
+        <tr>
+        <td>\n</td>
+        <td>查找换行符</td>
+        </tr>
+        <tr>
+        <td>\n</td>
+        <td>换行字符</td>
+        </tr>
+        <tr>
+        <td>\f</td>
+        <td>　换页字符</td>
+        </tr>
+        <tr>
+        <td>\r　</td>
+        <td>回车字符</td>
+        </tr>
+        <tr>
+        <td>\t　</td>
+        <td>制表符</td>
+        </tr>
+        <tr>
+        <td>\v　</td>
+        <td>垂直制表符</td>
+        </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+        <tr>
+        <th>原子表</th>
+        <th>含义</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>[ ]</td>
+        <td>只匹配其中的一个原子</td>
+        </tr>
+        <tr>
+        <td>[^]　</td>
+        <td>只匹配"除了"其中字符的任意一个原子</td>
+        </tr>
+        <tr>
+        <td>[0-9]　</td>
+        <td>匹配0-9任何一个数字</td>
+        </tr>
+        <tr>
+        <td>[a-z]</td>
+        <td>　匹配小写a-z任何一个字母</td>
+        </tr>
+        <tr>
+        <td>[A-Z]　</td>
+        <td>匹配大写A-Z任何一个字母</td>
+        </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+        <tr>
+        <th>量词</th>
+        <th>含义</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>{n}</td>
+        <td>规定前面的一个原子重复n次</td>
+        </tr>
+        <tr>
+        <td>{n,}</td>
+        <td>规定前面的一个原子重复n次及n次以上</td>
+        </tr>
+        <tr>
+        <td>{n,m}</td>
+        <td>规定前面的一个原子重复n-m次</td>
+        </tr>
+        <tr>
+        <td>*</td>
+        <td>前面一个原子重复0-无数次 等价于{0,}</td>
+        </tr>
+        <tr>
+        <td>+</td>
+        <td>前面一个原子重复1-无数次 等价于{1,}</td>
+        </tr>
+        <tr>
+        <td>?=n</td>
+        <td>匹配任何其后紧接指定字符串 n 的字符串</td>
+        </tr>
+        <tr>
+        <td>?!n</td>
+        <td>匹配任何其后没有紧接指定字符串 n 的字符串</td>
+        </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+        <tr>
+        <th>符号</th>
+        <th>含义</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>^</td>
+        <td>从字符串开头进行匹配</td>
+        </tr>
+        <tr>
+        <td>$</td>
+        <td>匹配到字符串的末尾</td>
+        </tr>
+        <tr>
+        <td>\b</td>
+        <td>匹配单词边界</td>
+        </tr>
+        <tr>
+        <td>\B</td>
+        <td>匹配非单词边界</td>
+        </tr>
+        <tr>
+        <td>¦(这是个管道符)</td>
+        <td>符号前后两个部分只要有一侧符合即可</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <script>
+        var regbox=document.querySelector("input[name=reg]")
+        var strbox=document.querySelector("textarea")
+        var check=document.querySelector("input[name='check']")
+        var clear=document.querySelector("input[name='clear']")
+        var con=document.querySelector(".con")
+
+
+        check.onclick=function(){
+            var reg=eval(regbox.value)
+            var str=strbox.value
+            if(reg.test(str)){
+                var result=reg.exec(str)
+                con.innerHTML="匹配结果：成功<br>匹配的字符串是："+result[0]+";匹配的位置在："+result.index;
+            }else{
+                con.innerHTML="匹配结果：失败"
+            }
+        }
+        clear.onclick=function(){
+            regbox.value="//"
+            strbox.value=""
+            con.innerHTML="匹配结果："
+        }
+
+
+        </script>
+</body>
+</html>

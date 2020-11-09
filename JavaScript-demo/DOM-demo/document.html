@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="one" class="ones">one</div>
+    <div id="first" class="ones">first</div>
+    <div id="two" class="twos">two</div>
+    <div id="three" class="threes">three</div>
+    <script>
+        // window 顶层对象
+        // histroy location console  document
+        // dom document object model 模型完成的逻辑和结构
+
+        // html文档来进行一系列的操作
+        // 1.讲html元素转换为javascript对象
+        //将在html当中的元素在内存中的地址(数据)获取到
+
+        //如何获取元素
+        // 1. 通过标签名来进行获取 集合类数组 分开处理
+        // var divs=document.getElementsByTagName("div")
+        // console.log(divs [0].innerHTML);
+
+        // 2.通过id名来获取
+        // var one=document. getElementById("one")
+        // one.innerHTML ="one" ;
+
+        // 3.通过类名来获取
+        //var ones=document.getElementsByClassName("ones") ;
+        //var twos= document.getElementsByClassName("twos");
+        //console. log(ones);
+        //console. log(twos);
+
+        // 4.各种选择器来进行获取
+        // var div=document.querySelector("div");
+        // var div=document.querySelector(".twos");
+        // var div=document.querySelectorAll(".ones");
+
+
+        // 类数组  数组  方法
+
+
+        //如何将类数组转换为数组
+
+        //var newdiv=Array.prototype.slice.call(divs) ;
+
+        // var newdiv=Array. from(divs) ;
+        // console. log (newdiv instanceof Array);
+
+    </script>
+
+    
+</body>
+</html>

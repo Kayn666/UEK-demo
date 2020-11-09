@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            border: 1px solid red;
+        }
+        .two{
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <div class="two"></div>
+    <script>
+        // 误区 为了能够让大家看到程序运行的结果
+
+        // return 值  能够给函数返回最终运行的值并且终止函数的运行
+        // return  终止函数的运行
+
+
+        function createTable(rows,cols) {
+            var table = "<table>";
+            for(var row = 0 ; row<rows ; row++){
+                table += "<tr>";
+                for(var col = 0 ; col < cols ; col++) {
+                    table += "<td>" + col + "</td>";
+                }
+                table += "</tr>"
+            }
+            table += "</table>"
+
+            return table;
+        }
+
+        var one = document . querySelector(".one");
+        var two = document . querySelector(".two");
+        one. innerHTML =createTable(10, 10)
+        two. innerHTML =createTable(10, 10)
+
+    </script>
+</body>
+</html>

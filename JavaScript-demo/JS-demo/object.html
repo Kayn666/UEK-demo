@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 类和对象的概念
+        // C  类和对象
+        // JavaScript  重点类和对象  函数  基于对象
+
+        // 类和对象  面向对象
+        // 类是对象的抽象   对象是类的实例
+
+        // 如何创建类  最近的创建方法就是通过函数去创建
+        // 函数的第一个作用：为了完成某一个特定功能的代码集合，重复的使用函数
+        // JavaScript函数有第二个作用：  作为类去使用，构造函数
+
+        // javascript 如何去创建一个类 实例化一个类(对象)，如何调用对象里面的属性和方法。
+
+        // function person(name,age,sex){
+        //     this.name=name;
+        //     this.age=age;
+        //     this.sex=sex;
+        //     this.say=function(){
+        //         console.log(this.name);
+        //         console.log(this.age);
+        //         console.log(this.sex);
+        //     }
+        // }
+
+        // var zhangsan = new person("zhangsan",18,"man");
+        // zhangsan.say();
+
+
+
+        //用类和对象，自己构建个数组类， 并且让这个数组类， 拥有去重的方法，
+        //   排序的方法，以及找最大值，最汉小值的方法
+        function myArr() {
+            var arr=arguments;
+            console.log(arr);
+            this.order = function () {
+                for (var i = 1; i < arr.length; i++) {
+                    if (arr[i] < arr[i - 1]) {
+                        var num = arr[i];
+                        var j = i - 1;
+                        arr[i] = arr[j];
+                        while (j >= 0 && num < arr[j]) {
+                            arr[j + 1] = arr[j];
+                            j--;
+                        }
+                        arr[j + 1] = num;
+                    }
+                }
+                console.log(arr);
+            }
+            this.repeat = function () {
+                var newarr = [];
+                for (var i = 0; i < arr.length; i++) {
+                    var flag = true;
+                    for (var j = 0; j < newarr.length; j++) {
+                        if (arr[i] == newarr[j]) {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if (flag) {
+                        newarr[newarr.length] = arr[i]
+                    }
+                }
+                console.log(newarr);
+
+            }
+            this.max = function () {
+                
+                    var num1 = arr[0];
+                    for (var i = 1; i < arr.length; i++) {
+                        if (arr[i] > num1) {
+                            num1 = arr[i];
+                        }
+                    }
+                    console.log(num1);
+                
+                // if (type == "min") {
+                //     var num2 = arr[0];
+                //     for (var i = 1; i < arr.length; i++) {
+                //         if (arr[i] < num2) {
+                //             num2 = arr[i];
+                //         }
+                //     }
+                //     console.log(num2);
+                // }
+            }
+
+        }
+        var arr = new myArr(2,8,5,10,6,5,15,35,9,10);
+        arr.order();
+        arr.repeat();
+        arr.max();
+
+        // new arr1 = new myArr("a", "b", "c", "a", "e", "f", "b");
+        // console.log(arr1.);
+    </script>
+</body>
+</html>

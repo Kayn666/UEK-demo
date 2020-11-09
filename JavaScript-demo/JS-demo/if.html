@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+        width: 200px;height: 200px;
+        border: 1px solid red;
+        }
+    </style>
+    <script>
+        // 嵌入式的方式
+        // 流程控制  程序执行的流程  变量  运算符  流程控制
+        //1. 顺序执行，按照书写代码的先后顺序，从上到下执行
+
+        // alert(1)
+        // alert(2)
+
+        //2. 选择执行     分支/条件执行
+
+        // 单路分支 双路分支 多路分支 嵌套分支
+
+        // 双路分支
+        // if(条件){
+        //     条件成立要执行的代码
+        // }
+        // else{
+        //     条件不成立要执行的代码
+        // }
+
+        // 多路分支
+        // if(条件1){
+        //     条件成立1要执行的代码
+        // }
+        // else if(条件2){
+        //     条件2成立要执行的代码
+        // }
+        // else if(条件3){
+        //     条件3成立要执行的代码
+        // }
+        // ......
+        // else{
+        //     以上条件都不成立要执行的代码
+        // }
+
+        // 嵌套分支
+        // if(条件1){
+        //     条件1成立要执行的代码
+        //     if(嵌套条件1){
+        //         嵌套条件1成立要执行的代码
+        //     }
+        // }
+
+
+        // 条件?成立执行:不成立执行
+
+        // 例子：输入成绩判断是否及格
+        // window.onload=function(){
+        // var div=document.querySelector("div")
+        // var num=prompt("请输入内容");
+        // if(num>=60){
+        //     // console.log("及格");
+        //     div.style.border="5px solid green"
+        //     div.innerHTML="及格";
+        // }else{
+        //     // console.log("不及格")
+        //     div.style.border="5px solid red";
+        //     div.style.color="red";
+        //     div.innerHTML="不及格";
+        // }
+        // }
+
+        // 例子： 当我们要查询分数级别的时候，只要输入0-100之间的数字，都会有对
+        //      应的级别显示，90-100优秀，70-90良好，60-70及格，
+        //      低于60又分为2个级别，40- 60不及格低于40.叫家长
+        window.onload=function(){
+        var div=document.querySelector("div")
+        var num=prompt("请输入内容")
+        if(num>=90 && num<=100){
+            console.log("优秀")
+            div.innerHTML="优秀"
+        }else if(num>=70 && num<90){
+            console.log("良好")
+            div.innerHTML="良好"
+        }else if(num>=60 && num<70){
+            console.log("及格")
+            div.innerHTML="及格"
+        }else if(num>=40 && num<60){
+            console.log("不及格")
+            div.innerHTML="不及格"
+        }else if(num>=0 && num<40){
+            console.log("叫家长")
+            div.innerHTML="叫家长"
+        }else{
+            console.log("输入有误")
+            div.innerHTML="输入有误"
+        }
+    }
+
+
+        // switch(条件执行){
+        //     case 匹配值:
+        //         执行代码
+        //     break;
+        //     case 匹配值:
+        //         执行代码
+        //     break;
+        //     default:
+        //         执行代码
+        // }
+
+    // 例子：输入颜色
+    // window.onload=function(){
+    //     var div=document.querySelector("div")
+    //     var color=prompt("请输入颜色")
+    //     switch(color){
+    //         case "red":
+    //             div.style.border="1px solid red"
+    //         break;
+    //         case "blue":
+    //             div.style.border="1px solid blue"
+    //         break;
+    //         default:
+    //             div.style.border="1px solid black"
+    //     }
+    // }
+
+
+    // if else 和 switch
+    // if else 是可以完全替代switch的
+    // 但是用switch替代 if else 也可以，在很多情况下比较繁琐
+    // if else 确定一个范围内的条件或者是不太确定的条件
+    // switch  适合确定某一个值，确定的值
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

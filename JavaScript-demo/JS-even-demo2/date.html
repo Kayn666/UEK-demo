@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date</title>
+</head>
+<body>
+    <!-- <div class="demo"></div> -->
+    倒计时：<span></span>天<span></span>小时<span></span>分钟<span></span>秒
+    <script>
+        // 时间对象
+        // 日期在js里也是一个对象
+        // 实例化日期对象的时候，日期对象里面包含的是当前时刻的信息
+
+        // var date=new Date(1595983133760)    //可以传入时间戳来获取当时的日期
+
+        // var date=new Date(1998,06,02,01,0,0)
+        // console.dir(date)
+
+        // 时间戳   距离1970年经过的毫秒数
+        // console.log(date.getTime())
+
+
+        // 一个倒计时，时间的变化  还剩: x天x小时x分钟x秒,每一秒钟都要发生变化
+        // var objDate=new Date()
+        // objDate.setFullYear(2021)
+        // objDate.setMonth(0)
+        // objDate.setDate(1)
+        // objDate.setHours(0)
+        // objDate.setMinutes(0)
+        // objDate.setSeconds(0)
+
+
+        // var demo=document.querySelector(".demo")
+        // var date=document.createElement("div")
+        // setInterval(function(){
+        //     var current=new Date()
+        //     var times=parseInt(objDate.getTime())-parseInt(current.getTime())
+
+        //     var second = times/1000
+        //     var minute = second/60
+        //     var hour = minute/60
+        //     var day = hour/24
+
+        //     var days=parseInt(day)
+        //     var hours=parseInt(hour-days*24)
+        //     var minutes=parseInt(minute-parseInt(hour)*60)
+        //     var seconds=parseInt(second-parseInt(minute)*60)
+        //     date.innerHTML="距离2021年还剩"+days+"天"+hours+"小时"+minutes+"分钟"+seconds+"秒"
+        // },1000)
+        // demo.appendChild(date)
+
+
+
+        // 距离秒杀时间的一个倒计时，时间的变化  还剩: x天x小时x分钟x秒,每一秒钟都要发生变化
+        function settime(opts){
+            var end=new Date()
+            end.setFullYear(opts.end[0])
+            end.setMonth(opts.end[1])
+            end.setDate(opts.end[2])
+            end.setHours(opts.end[3])
+            end.setMinutes(opts.end[4])
+            end.setSeconds(opts.end[5])
+            var endTime=end.getTime()/1000
+            var t=setInterval(run,1000)
+            run()
+
+            function run(){
+                var current=new Date()
+                var currentTime=current.getTime()/1000
+                var diff=endTime-currentTime
+                if(diff<0){
+                    console.error("时间已过")
+                    clearInterval(t)
+                    return
+                }
+                var day=parseInt(diff/(60*60*24))
+                diff%=(60*60*24)
+                var hours=parseInt(diff/60*60)
+                diff%=60*60
+                var min=parseInt(diff/60)
+                diff%=60
+                var sed=parseInt(diff)
+
+                opts.ele[0].innerHTML=day
+                opts.ele[1].innerHTML=hours
+                opts.ele[2].innerHTML=min
+                opts.ele[3].innerHTML=sed
+            }
+        }
+
+        var timeEle=document.querySelectorAll("span")
+        settime({
+            end:[2020,7,1,0,0,0],
+            ele:[timeEle[0],timeEle[1],timeEle[2],timeEle[3]]
+        })
+    </script>
+</body>
+</html>

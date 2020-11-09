@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            width: 200px;
+            height: 200px;
+            background: cyan;
+        }
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <script>
+        //基于对象的，基于事件的弱类型的解释性语言
+        //事件鼠标事件  键盘事件  浏览器自带的事件
+        //程序能和用户进行交互
+
+        /*
+            鼠标事件
+            click   单击
+            dbclick    双击
+            mouseover   进入……区域
+            mouseout    离开……区域
+            mousedown   鼠标左键按下时
+            mouseup     鼠标抬起时
+            mousemove   鼠标移动时      （兼容性不好）
+            contextmenu 鼠标右键按下时  （有兼容性问题）
+
+
+
+            键盘事件
+            当键盘按下   抬起
+
+
+            浏览器自带事件
+            onload     onscroll    onreadystatechange     ajax 
+            
+            事件的构成
+            1.目标对象  事件源（谁）
+            2.事件（交互，动作）
+            3.事件处理程序（干什么事情）
+            4.事件对象（事件发生时候的详细信息）
+
+        */
+
+        // 如何注册（添加）一个事件    3种方式
+
+        var div=document.querySelector(".one")
+
+        // 1.直接量的方式(事件名之前须加on)
+
+        // // 给div对象添加一个特殊的方法
+        // div.onclick=function(){
+        //      alert(1)
+        // }
+
+
+        // 2.标准方式
+        // div.addEventListener("click",function(){
+        //     alert(2)
+        // },false)         // true - 事件句柄在捕获阶段执行
+                            // false- 默认。事件句柄在冒泡阶段执行
+
+
+        // 3.混排方式
+        // onclick="(function aa(){alert(1)})()"
+
+
+
+        // 1.通过直接量的方式定义事件，同一个事件只能有同一个事件处理程序，否则后面的事件会将前面的事件覆盖
+        // 2.通过标准的定义事件的方式,可以让同一个事件执行不同的事件处理程序
+
+        // 3.通过直接量的方式定义的时间，通过直接量=null的方式，来注销事件
+        // div.onclick=function( ){
+        //     alert(1)
+        //     div.onclick=null ;
+        // }
+
+        // 4.通过标准方式定义的事件，通过removeEventListener注销事件，但
+        // 是在注册事件的时候，事件处理函数(程序)，必须得有名字，否则无法注销
+        // function move(){
+        //     alert(1);
+        //     div.removeEventListener("click" , move)
+        // }
+        // div.addEventListener("click" , move)
+
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>触摸事件</title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        // 触摸事件 touchstart   touchmove   touchend
+        // 在移动端也能触发鼠标事件，但是触摸事件优先。而在PC端无法触发触摸事件
+        var div=document.querySelector("div")
+
+        div.ontouchstart=function (ev) {
+        console.log("按下",ev.touches[0].screenX) ;
+        }
+        div.ontouchmove=function (ev) {
+        console.log("移动",ev.touches[0].screenX);
+        }
+        div.ontouchend=function (ev) {
+        console.log("抬起",ev.changedTouches[0].screenX);
+        }
+
+    </script>
+</body>
+</html>

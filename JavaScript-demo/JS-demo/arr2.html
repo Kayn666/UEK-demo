@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 排序  冒泡  插入  选择
+        var arr=[1,34,24,,45,23,42,3,5,67,8,4,3,56,43,42]
+        // 排序的方式  正序  倒序  //冒泡  选择  插入
+        // 前面>后面  互换位置  由小到大
+        // 前面<后面  互换位置  由大到小
+
+        // 快速排序方式
+        // arr.sort(function(a,b){
+        //     // a-b  正序
+        //     // b-a  倒序
+        //     return b-a
+        // })
+        // console.log(arr)
+
+
+
+
+
+        //现在一堆div,需要显示到网页当中，但是这些div,我们要根据div的宽度的大小，从小到达依次进行显示。
+
+        // 如何通过js往页面当中插入内容
+
+        // var div=document.createElement("div")       
+        // document.body.appendChild(div)
+
+        // 如何通过js给元素设置样式
+        // div.style.width="200px"
+        // div.style.height="200px"
+        // div.style.backgroundColor="red"
+
+
+
+
+        // 创建随机颜色
+        function createColor(){
+            return "rgb("+Math.floor(Math.random()*255)+","
+            +Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)
+            +")"
+        }
+
+        // 原始数据
+        var divs=[
+            {width:200,height:20,background:createColor(),
+            marginBottom:10},
+            {width:100,height:20,background:createColor(),
+            marginBottom:10},
+            {width:50,height:20,background:createColor(),
+            marginBottom:10},
+            {width:600,height:20,background:createColor(),
+            marginBottom:10},
+            {width:300,height:20,background:createColor(),
+            marginBottom:10},
+            {width:500,height:20,background:createColor(),
+            marginBottom:10},
+            {width:400,height:20,background:createColor(),
+            marginBottom:10},
+            {width:700,height:20,background:createColor(),
+            marginBottom:10},
+        ]
+
+        // 对原始数据排序
+        divs.sort(function(a,b){
+            return a.width-b.width
+        })
+
+        //将数据转换为可视化内容
+        // divs.forEach(function(div,index){
+        //     var newdiv=document.createElement("div");
+        //     newdiv.style.width=div.width+"px"; 
+        //     newdiv.style.height=div.height+"px";
+        //     newdiv.style.background=div.background;
+        //     document.body.appendChild(newdiv);
+        // })
+
+
+        // 排序之后将每一个div的高度增加10
+        divs.forEach(function(div,index){
+            div.height+=10
+        })
+        // 对数据进行倒置，倒置后再显示到页面当中
+        divs.sort(function(a,b){
+            return b.width-a.width
+        })
+        console.log (divs);
+        divs.forEach(function(div,index){
+            var newdiv=document.createElement("div");
+            newdiv.style.width=div.width+"px"; 
+            newdiv.style.height=div.height+"px";
+            newdiv.style.background=div.background;
+            document.body.appendChild(newdiv);
+        })
+    </script>
+</body>
+</html>

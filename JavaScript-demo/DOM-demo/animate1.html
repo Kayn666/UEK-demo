@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div style="width: 200px; height: 200px; background: red;"></div>
+    <input type="button" value="按钮">
+    <script>
+        var btn=document.querySelector("input")
+        var div=document.querySelector("div")
+
+        // 中间算法
+        // btn.onclick=function(){
+        //     animate(div,"width",50);
+        // }
+        // function animate(obj,attr,end){
+        //     setInterval(function(){
+        //         var start=parseInt(getComputedStyle(obj,null)[attr])
+
+        //         var speed=end-start>0?Math.ceil(
+        //             (end-start)/5):Math.floor((end-start)/5)
+
+        //         var val=start+speed
+        //         obj.style[attr]=val+"px"
+        //         if(val==end){
+        //             clearInterval(t)
+        //         }
+        //     },50)
+        // }
+
+
+
+
+
+        // 动画时间可控的条件：
+        // change(c):变化值   
+        // time(t): c当前运行的时间     
+        // duration(d):持续的时间
+        // begin(b):开始的值
+
+        // 匀速运动: begin+change*t/d
+        btn.onclick=function(){
+            animate(div,"width",400,1000);
+        }
+
+        function animate(obj,attr,end,duration){
+            var start=parseInt(getComputedStyle(obj,null)[attr])
+            var change=end-start
+            var time=0
+            var t=setInterval(function(){
+                time+=50
+                obj.style[attr]=start+change*time/duration+"px"
+                if(time>=duration){
+                    obj.style[attr]=end+"px"
+                    clearInterval(t)
+                }
+            },50)
+        }
+    </script>
+</body>
+</html>

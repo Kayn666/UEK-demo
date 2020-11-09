@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>钟表</title>
+    <style>
+        #clock {
+            margin:auto;
+            position: absolute;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            width:500px;
+            height:500px;
+            border-radius: 50%;
+            border:1px solid black;
+            background: yellow;
+            background-size: 1500px;
+            background-position: -616px 1084px;
+
+        }
+        #hour{
+            transform-origin: 15px 35px;
+            position: absolute;
+            top:0;
+            left:160px;
+            bottom:0;
+            right:0;
+            width:200px;
+            height:10px;
+            /*border:1px solid red;*/
+            margin:auto;
+            background: black;
+            background-size: 1500px;
+            background-position: -1241px 898px;
+        }
+        #minute{
+            transform-origin: 15px 35px;
+            position: absolute;
+            top:0;
+            left:211px;
+            bottom:0;
+            right:0;
+            width:250px;
+            height:10px;
+            /*border:1px solid red;*/
+            margin:auto;
+            background: blue;
+            background-size: 1500px;
+            background-position: -1241px 827px;
+        }
+        #scend{
+            transform-origin: 25px 35px;
+            position: absolute;
+            top:0;
+            left:193px;
+            bottom:0;
+            right:0;
+            width:250px;
+            height:10px;
+            /*border:1px solid red;*/
+            margin:auto;
+            background: red;
+            background-size: 1500px;
+            background-position: -1256px 1913px;
+        }
+    </style>
+</head>
+<body>
+<div id="clock">
+    <div id="hour"></div>
+    <div id="minute"></div>
+    <div id="scend"></div>
+</div>
+<script>
+    //过程；
+    /*
+    * 获取当前时间
+    * 获取到1900年的总毫秒数
+    * 求出现在的时 分 秒
+    * 求出各个指针旋转度数*/
+    var hour=document.getElementById("hour");
+    var minute=document.getElementById("minute");
+    var scend=document.getElementById("scend");
+  setInterval (function(){
+      var timenow=new Date();
+      var alltime=timenow.getTime();  //总毫秒
+      var s=(alltime/1000)%60;  //秒
+      var m=(alltime/1000/60)%60; //分
+      var h=(alltime/1000/60/60)%24+8;  //时
+      //console.log(h);
+    hour.style.transform ="rotatez(" + (h*30-90) + "deg)";
+    minute .style.transform ="rotatez(" + (m*6-90) + "deg)";
+     scend.style.transform ="rotatez(" + (s*6-90) + "deg)";
+  },1000)
+</script>
+</body>
+</html>

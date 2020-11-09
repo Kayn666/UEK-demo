@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 键盘事件
+        // 多用于表单上
+
+        // // 按下
+        // document.onkeydown=function(){
+        //     alert("down")
+        // }
+        // // 抬起
+        // document.onkeyup=function(){
+        //     alert("up")
+        // }
+        // // 按稳（触发速度落后于down）
+        // document.onkeypress=function(){
+        //     alert("press")
+        // }
+
+
+
+        document.onkeydown=function(ev){
+            // which  keyCode  键盘码  ascii
+            // 监控特殊功能键 ctrl Alt shift 回车
+            console.log(ev.ctrlKey)
+            console.log(ev.altKey)
+            console.log(ev.shiftKey)
+            console.log(ev.keyCode)//回车键
+            
+        }
+    </script>
+</body>
+</html>

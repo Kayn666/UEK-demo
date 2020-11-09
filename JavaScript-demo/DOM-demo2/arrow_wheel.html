@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .out_arrow_wheel{
+            width: 800px;
+            height: 260px;
+            margin: auto;
+            position: relative;
+        }
+        body,ul,li{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .arrow_wheel{
+            width: 800px;
+            height: 260px;
+            margin: auto;
+            border: 1px solid #aaa;
+            overflow: hidden;
+        }
+        .arrow_wheel_box{
+            height: 100%;
+        }
+        .arrow_wheel li{
+            float: left;
+            width: 200px;
+            height: 100%;
+        }
+        .arrow_wheel li a{
+            display: block;
+            border: none;
+            width: 180px;
+            height: 100%;
+            margin: auto;
+        }
+        .arrow_wheel li a img{
+            width: 100%;
+            height: 100%;
+        }
+        .left{
+            position: absolute;
+            left:-50px;
+            font-size: 60px;
+            height: 200%;
+            line-height: 260px;
+            cursor: pointer;
+        }
+        .left:hover,.right:hover{
+            color: red;
+        }
+        .right{
+            position: absolute;
+            right:-50px;
+            font-size: 60px;
+            height: 200%;
+            line-height: 260px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="out_arrow_wheel">
+    <div class="left">&lt;</div>
+    <div class="right">&gt;</div>
+    <div class="arrow_wheel">
+        <ul class="arrow_wheel_box">
+        <li>
+            <a href="#">
+                <img src="./imgs/wd1.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="./imgs/wd2.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="./imgs/wd3.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="./imgs/wd4.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="./imgs/wd5.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="./imgs/wd6.jpg" alt="">
+            </a>
+        </li>
+        
+        </ul>>
+    </div>
+</div>
+<script src="./animate.js"></script>
+    <script>
+        var arrow_wheel_box=document.querySelector(".arrow_wheel_box")
+        var num=arrow_wheel_box.childElementCount;
+        var arrow_wheel=document.querySelector(".arrow_wheel")
+        var leftBtn=document.querySelector(".left")
+        var rightBtn=document.querySelector(".right")
+
+
+        arrow_wheel_box.onmouseover=function(){
+            clearInterval(t)
+        }
+        arrow_wheel_box.onmouseout=function(){
+            t=setInterval(move,3000)
+        }
+
+
+        // 左边动
+        leftBtn.onclick=function(){
+            animate(arrow_wheel_box,{
+                marginLeft:-200
+            },300,Tween.Linear,function(){
+                arrow_wheel_box.appendChild(arrow_wheel_box.firstElementChild)
+                arrow_wheel_box.style.marginLeft=0
+            })
+        }
+
+        // 右边动
+        rightBtn.onclick=function(){
+            arrow_wheel_box.insertBefore(arrow_wheel_box.lastElementChild,arrow_wheel_box.firstElementChild)
+
+                arrow_wheel_box.style.marginLeft="-200px"
+            animate(arrow_wheel_box,{
+                marginLeft:0
+            },300,Tween.Linear,function(){
+                
+            })
+        }
+
+
+
+
+        // 自动
+        function move(){
+            animate(arrow_wheel_box,{
+                marginLeft:-200
+            },300,Tween.Linear,function(){
+                arrow_wheel_box.appendChild(arrow_wheel_box.firstElementChild)
+                arrow_wheel_box.style.marginLeft=0
+            })
+        }
+        
+        var t=setInterval(move,3000)
+    </script>
+</body>
+</html>

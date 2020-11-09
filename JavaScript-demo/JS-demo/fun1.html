@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 一、如何定义一个函数
+
+        // 1.关键字的方式
+        // function fun(){
+        //     console.log("函数体");
+        // }
+
+        // 2.直接量的方式
+        // var fun = function(){
+        //     console.log("直接量的方式");
+        // }
+
+        // 3.匿名函数   运算符()  优先级  函数执行
+        // (function(){
+        //     console.log("匿名函数");
+        // })();
+
+
+        // 二、如何调用一个函数
+
+        // 1.函数名()
+        // 2.变量名()
+        // 3.自调用的方式(函数)()
+        // 4.事件调用
+
+        // 参数  形参  实参
+        // 形参就是定义函数的时候 定义的参数
+        // 调用函数的时候传入参数，叫实参
+        // 形参和实参是一一对应
+
+        // 参数可以接收任何的数据类型
+        // 如果说形参的数量多于实参, 不会报错
+        // 如果说实参的数量多于形参，也不会报错，但是多出的实参无法获取
+        // arguments 对象可以来获取多余的实参
+
+        function c(){
+            for(var i=0;i<arguments.length;i++){
+                console.log(arguments[i])
+            }
+        }
+
+        c("a","b","c","d","e","f","g")
+
+    </script>
+</body>
+</html>

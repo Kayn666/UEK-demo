@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="aniMath.js"></script>
+    
+    <div style="width: 200px; height: 200px; background: red;"></div>
+    <input type="button" value="按钮">
+
+    <script>
+        // 最终算法   引用aniMath.js
+        var btn=document.querySelector("input")
+        var div=document.querySelector("div")
+
+        btn.onclick=function(){
+            animate(div,{
+                width:400,
+                height:400,
+                margin:400,
+            },1000,Tween.Linear,function(){
+                animate(div,{
+                    width:200,height:200,margin:0
+                },1000,Tween.Back.easeIn)
+            })
+        }
+
+        function animate(obj,attrObj,duration,fn,callback){
+            clearInterval(obj.t)
+            if(obj.nodeType!==1){
+                console.error("对象类型不对")
+                return
+            }
+            // 参数初始化
+            var start={}
+            var change={}
+            var time=0
+            var fn=fn||Tween.Linear
+
+
+            // 获取每个属性的初始值
+            for(var i in attrObj){
+                start[i]=parseInt(getComputedStyle(obj,null)[i])
+                change[i]=attrObj[i]-start[i]
+            }
+
+            obj.t=setInterval(function(){
+                time+=50
+                for(var i in attrObj){
+                    obj.style[i]=fn(time,start[i],change[i],duration)+"px"
+                }
+                if(time>=duration){
+                    for(var i in attrObj){
+                        obj.style[i]=attrObj[i]+"px"
+                    }
+                    clearInterval(obj.t)
+                    if(callback){
+                        callback()
+                    }
+                }
+            },50)
+
+
+
+        }
+    </script>
+</body>
+</html>

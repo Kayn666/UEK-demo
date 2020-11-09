@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 写一个手机号的一个正则
+
+        function checkPhone(){ 
+        var phone = document.getElementById('phone').value;
+        if(!(/^1[3456789]\d{9}$/.test(phone))){ 
+            alert("手机号码有误，请重填");  
+            return false; 
+            } 
+        }
+
+
+        // 2. 写身份证的一个正则
+
+
+
+
+
+        // 3. 确定密码的规则，   6-20 之间   开头必须是字母,中间至少有1位大写 ，至少有一位特殊的符号 !@#$&*(){}[]，剩下的内容可以字母，下划线,数字，可以是特殊的符号
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // dom document object model
+        // html的内容  属性  样式
+        // 执行流程  顺序执行的 是的
+        // innerWidth setInterval
+        // 1.函数名()  2.变量名() 3. 4.事件调用
+        //当整个html页面加载完成的时候
+
+
+        window. onload = function (){
+            var div = document.querySelectorAll("div")[0];
+            // 操作html元素对象的内容
+            
+            // div.innerHTML ="<em>新的内容</em>"
+            
+            // div.innerText="<em>这是新的文本</em>"
+
+            div.textContent="<em>这是新的文本</em>"
+            
+        }
+    </script>
+    <div></div>
+        
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            position: relative;
+            margin: 200px;
+        }
+        .two{
+            width: 100px;
+            height: 100px;
+            background: cyan;
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <div class="two"></div>
+    </div>
+    <script>
+        var div=document.querySelector(".two")
+
+
+    
+        div.onmousedown = function(ev) {
+
+            //获得距离浏览器的距离
+            var cx=ev.clientX;
+            var cy=ev.clientY;
+            var ox=div.offsetLeft;
+            var oy=div.offsetTop;
+            var downx=cx-ox;
+            var downy=cy-oy;
+
+
+            document.onmousemove = function (ev) {
+                var movex=ev.clientX;
+                var movey=ev.clientY;
+                div.style.left=movex-downx+"px"
+                div.style.top=movey-downy+"px"
+                ev.preventDefault();
+            }
+            document.onmouseup=function(ev){
+                document.onmousemove=null;
+                document.onmouseup=null;
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        .title {
+            widows: 100px;
+            height: 30px;
+            background-color: #ccc;
+        }
+
+        .title a {
+            float: left;
+            width: 25%;
+            height: 100%;
+            line-height: 30px;
+            text-align: center;
+
+        }
+
+        .con {
+            width: 100%;
+            height: 170px;
+            overflow: hidden;
+        }
+
+        .con div {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 30px;
+
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div class="title">
+            <a href="javascript:;" style="background-color: red;">选项1</a>
+            <a href="javascript:;">选项2</a>
+            <a href="javascript:;">选项3</a>
+            <a href="javascript:;">选项4</a>
+
+
+        </div>
+        <div class="con">
+            <div class="con-list">111111</div>
+            <div class="con-list">222222</div>
+            <div class="con-list">333333</div>
+            <div class="con-list">444444</div>
+
+
+
+        </div>
+    </div>
+
+    
+
+    <script>
+        var btns = document.querySelectorAll(".title a")
+        var cons = document.querySelectorAll(".con-list")
+
+        // 方法一   使用btns[i].index=i
+        // for (var i = 0; i < btns.length; i++) {
+        //     btns[i].index=i
+        //     btns[i].onclick= function () {
+        //         for (var j = 0; j < cons.length; j++) {
+        //             cons[j].style.display = "none";
+        //             btns[j].style.background = "none"
+        //         }
+        //         cons[this.index].style.display = "block"
+        //         btns[this.index].style.background = "red"
+        //     }
+        // }
+
+
+        // 方法二  使用闭包
+        // for(var i=0;i<btns.length;i++){
+        //     (function(index){
+        //         btns [index].onclick=function(){
+        //             for(var j=0;j<btns.length;j++){
+        //                 cons[j].style.display="none";
+        //                 btns[j].style.background="none";
+        //             }
+        //             cons[index].style.display="block";
+        //             this.style.background="red";
+        //         }
+        //     })(i)
+        // }
+
+
+
+        // 方法三    使用let  块作用域，会再块作用域内保存一些列的变化值
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick= function () {
+                for (var j = 0; j < cons.length; j++) {
+                    cons[j].style.display = "none";
+                    btns[j].style.background = "none"
+                }
+                cons[i].style.display = "block"
+                btns[i].style.background = "red"
+            }
+        }
+
+
+
+    
+
+
+       
+
+        
+
+
+
+    </script>
+</body>
+
+</html>

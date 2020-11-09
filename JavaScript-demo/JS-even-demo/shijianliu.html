@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 文档流   浏览器渲染html的顺序
+        // 程序执行流程 顺序执行 选择执行 循环执行
+        // 作用域链 由里到外
+        // 原型继承链 Object
+
+
+        // 冒泡型事件流 （默认的事件流）
+        // 由最确定的事件源依次向外（不确定）扩散
+        // 子元素触发事件，父元素必定会接收到事件
+
+        // 冒泡型也会给我们的程序带来麻烦，如何解决？
+
+
+
+
+
+        // 捕获型事件流
+        // 由最不确定的元素向确定的元素聚集（由最外层向里层传播）
+        // div.addEventListener("click",function(){
+        //     alert(2)
+        // },false)         // true - 事件句柄在捕获阶段执行
+                            // false- 默认。事件句柄在冒泡阶段执行
+
+        // 捕获型事件流几乎没有任何用处，只会给我们带来麻烦
+        // 只要有动作，浏览器就能捕获，确定是谁触发。
+        // 效率很低
+
+
+
+
+        // 事件委派    提升效率
+    </script>
+</body>
+</html>

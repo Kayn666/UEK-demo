@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         面试题->在html页面当中，有哪些场景会向服务器发起请求
+// link Css   script   src="js"   img src  a href=   表单提交   ajax
+
+
+
+
+// 设置事件标准方式
+// div.addEventListener("click",function(){
+//             alert(2)
+//         },false)         //true - 事件句柄在捕获阶段执行
+                        // false- false- 默认。事件句柄在冒泡阶段执行
+
+
+
+
+
+
+// 一道面试题/笔试题  闭包
+        // 函数不一样的地方：a()运行完，返回的是一个函数
+        // 在一个函数里包含另一个函数，并且里层函数引用了外层函数的变量，当调用里层函数的时候，形成闭包
+        // 只能在函数的内部访问，每次执行完函数，从内存中销毁
+        // 让局部变量，不要销毁，因为我们在某种情况下，要记录变量的变化值，闭包
+        // 内存泄漏，大量使用闭包，内存占用了，但是不会销毁
+
+        // var num=100;
+        // function a(){
+        //     var num=0;
+        //     return  function(){
+        //         num++ ;
+        //         console.log(num) ;
+        //     }
+        // }
+        
+        // var b=a();
+        // b();
+        // b();
+        // b();
+        // b();
+        // console.log(num) ;
+    </script>
+</body>
+</html>

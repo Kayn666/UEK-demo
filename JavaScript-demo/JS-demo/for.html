@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // document.write("<h1>我是标题</h1>")  文档中写内容
+        // alert()  弹出
+        // console.log()  输出到控制台
+        // prompt()  输入
+
+
+        // 循环结构  大部分的时间都在操作数组  下标从0开始
+
+        // 单层循环  
+        // for(var i=0;i<10;i++){
+        //     console.log(i)
+        // }
+        // 双层循环
+        // for(var i=0;i<10;i++){
+        //     for(var j=0;j<10;j++){
+        //         console.log(j)
+        //     }
+        // }
+
+        // 例子:操场上共100-200人，3排多出1人  4排多出2人  5排多出3人
+        // for(i=100;i<=200;i++){
+        //     if(i%3==1 && i%4==2 && i%5==3)
+        //     console.log(i);
+        // }
+
+
+        // 例子：通过循环的方式，创建个100行 100列的表格table,
+        //      且奇数行红色，偶数行蓝色。奇数列背景粉色，偶数列背景橘色
+        // var color =""
+        // document.write("<table>");
+        // for (var i = 1;i<= 10;i++){
+        //     if(i%2==0){
+        //         color = "blue";
+        //     }else{
+        //         color = "red";
+        //     }
+        //     document.write("<tr style='color:"+color+"'>");
+        //     for(var j =1;j<=10;j++){
+        //         if(j%2==0){
+        //             bgcolor="orange"
+        //         }else{
+        //             bgcolor="pink"
+        //         }
+        //         document.write("<td style='background:"+bgcolor+"'>" + j + "</td>");
+        //         }
+        //         document.write("</tr>");
+        //     }
+        // document.write("</table>");
+        
+
+
+        // 利用for循环，实现数组的冒泡排序
+        // var arr = [1,7,3,4,2,6,9,8,10,5];
+        // // 创建一个新数组
+        // for(var i = 0; i <= arr.length-1; i++){
+        // // 外层循环控制比较几轮
+        //     for(var j = 0; j <= arr.length-i-1; j++){
+        //     // 内层循环控制每轮比较几个元素
+        //         if(arr[j] > arr[j+1]){
+        //         // 判断每一次比较的时候，两个数字的大小
+        //         // arr[j]是第j个元素
+        //         // arr[j+1]是第j+1 个元素               
+        //         //如果j > j + 1， 把j 和j+i交换，也就是把相对大的值往后排序 也就是从小到大排序
+        //         //如果j < j + 1， 把相对小的值往后排 也就是从大到小排序
+        //             var temp = arr[j]; 
+        //             arr[j] = arr[j + 1];
+        //             arr[j + 1] = temp;
+        //         // 利用第三方变量交换j 和j + 1 的值
+        //         }
+        //     }
+        // }
+        // console.log(arr);
+        
+
+
+        // 选择排序
+        // var arr=[1,7,3,4,2,6,9,8,10,5] ;
+        //     for(var i=0;i<arr.length;i++){
+        //         for(var j=i+1;j<arr.length;j++){
+        //             if(arr[i]>arr[j] ){
+        //                 var temp=arr[i];
+        //                 arr[i]=arr[j];
+        //                 arr [j ]=temp;
+        //             }
+        //         }
+        //     }
+
+
+
+
+
+        // while循环  条件非常重要，会造成死循环
+
+        // while(条件){
+        //     执行语句
+        // }
+
+        // for循环适合处理已知的循环次数
+        // while循环适合助理未知的循环次数， 退出的条件
+
+        
+
+
+        // do-while循环
+        // do{
+        //     执行语句
+        // }while(条件)
+
+    </script>
+
+</head>
+<body>
+    <!-- <table  border="1" borderColor="red" 
+    align="center" cellspacing=0 cellpadding=10>
+    <script>
+        // 例子：通过循环的方式，创建个100行 100列的表格table
+        for(i=0;i<100;i++){
+            document.write("<tr></tr>")
+            for(j=0;j<100;j++){
+            document.write("<td></td>")
+            }
+        }
+    </script>
+    </table> -->
+</body>
+</html>

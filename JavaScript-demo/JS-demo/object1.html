@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // javascript java和c之 间的一个语言
+        // C函数编程   java面向对象编程
+        // 函数讲解    1.就是作为普通的函数执行   2.类(构造函数)
+        // class 去创建一个类   ecmascript不断的升级迭代
+        // 更像其他的一些语言，使程序员更容易上手  es6里面也加入了class类语法
+
+
+        // 1.如何通过函数创建一个类
+        // 2.如何实例化一个对象
+        // 3.如何去访问对象属性和方法
+        // 4.属性也就是一个对象除了函数以外的值
+        // 5.如何调用属性和方法(特殊的属性，值是函数)
+        // 对象.属性       对象.属性( )
+        // 对象["属性"]    对象["属性"]()
+
+
+        //开发的角度   对象看不见摸不着的需求
+
+        
+        
+        // 类和对象的内存分布     变量
+        // this就代表实例化对象的地址，变化的，跟随者对象的不同而进行变量
+
+        // 静态区的问题
+        // js  原型  原始的状态    函数.prototype 
+
+        // function myclass(){}
+        
+        // myclass.prototype={ 
+        //     name:"zhangsan",
+        //     age:12,
+        //     say:function(){ 
+        //         console. log( this. name )
+        //     }
+        // }
+
+        // var one = new myclass()
+        // one.say();
+
+
+        // json格式  JavaScript object notation    JavaScript对象符号
+        //      是JavaScript独有的一种方式，其他语言为了和JavaScript进行
+        //      数据的对接，json，数据交互，简洁方便快速的去传递数据，信息的交换
+
+        // var zhangsan={name:"zhangsan",age:12,sex:"man",
+        // say:function(){
+        //     alert(this.name);
+        // }}
+        // zhangsan.say();
+
+        // 仅仅用于数据的快速存储和信息的交换，不具备类和对象的特征
+
+
+        // 封装  继承  多态
+
+        // 封装：把一个类的属性方法隐藏起来，更安全
+        // 本身提供封装的一些特性
+
+        // var a=Symbol();   //加密方式
+        // var b=Symbol();
+        // console.log(a)
+        // console.log(b)
+        // console.log(a==b)
+ 
+
+        // function myobj(){
+        //     function myclass(){
+        //         var name=Symbol;
+        //         this[name]="zhangsan";
+        //         this.say=function(){
+        //             console.log(this[name]);
+        //         }
+        //     }
+
+        //     myclass.prototype={
+        //         age:12
+        //     }
+
+        //     return new myclass();
+        // }
+
+        // var obj = myobj();
+        // obj.say();
+
+
+
+
+        // 继承
+        // 被继承者叫父类   继承者叫子类
+        // 通过原型继承
+
+
+        
+        function person(name,age=12,sex="man"){
+            this.name=name;
+            this.age=age;
+            this.sex=sex;
+        }
+
+        person.prototype={
+            say:function(){
+                console.log(this.name);
+            },
+            eat:function(){
+                console.log("吃饭");
+            },
+            play:function(){
+                console.log("游戏");
+            }
+        }
+
+        // var zhangsan=new person("zhangsan");
+        // zhangsan.say();
+        
+        
+        function stu(xuehao){
+            this.xuehao=xuehao
+        }
+
+        stu.prototype=new person("lisi")    //完全继承
+        // sty.prototype=person.prototype;  //只继承原型
+        stu.prototype.study=function(){
+            console.log("学习");
+        }
+        stu.prototype.sleep=function(){
+            console.log("睡觉");
+        }
+
+        var lisi=new stu(123)
+
+        lisi.say()
+        lisi.eat()
+        lisi.play()
+        console.log(lisi.xuehao)
+        lisi.study()
+        lisi.sleep()
+
+        
+
+
+        //    继承链/原型链  就是js里继承的顺序，是通过函数的portotype属性完成的，
+        //    首先访问本构造函数的相关属性->本函数的原型属性->父类的构造函数属性->父类的原型属性
+        // ->
+
+        // function parent(){
+        //     this.name="parent";
+        // }
+
+        // parent.prototype={
+        //     name:"parent原型的值"
+        // }
+
+        // function son(){
+        //     this.name="son"
+        // }
+        // son.prototype=parent.prototype
+        // // son.prototype={
+        // //     name:"son原型的值" 
+        // // }
+        // son.prototype.son=function(){
+        //     this.name="son原型的值"
+        // }
+
+        // var zhangsan=new son();
+
+        // console.log(zhangsan.name)
+        // 如果说在构造函数和原型里同时具有某个属性，优先访问的是构造函数
+        //    类里的属性，其次访问原型。
+
+
+        // class
+        // 类和对象  最根本的方法
+        // 属性和方法  构造函数，实例化类的时候运行
+        // 通常还是会用函数作为类去实现，因为某些浏览器仍然不识别这种新的语法
+        // class person{
+        //     constructor(names,age,sex){
+        //         var name=Symbol();
+        //         this.aa=name;
+        //         this[this.aa]=names;
+        //         this.age=age;
+        //         this.sex=sex;
+        //     }
+        //     say(){
+        //         console.log(this[this.aa]);
+        //     }
+        //     play(){
+
+        //     }
+        // }
+
+        // console.dir(person)
+
+        // class stu extends person{
+        //     constructor(names,age,sex){
+        //         super(names,age,sex);
+        //     }
+        // }
+
+
+
+        // 遍历对象
+        // var obj={name:"zhangsan",age:12,say:function(){}};
+
+        // function person(){
+        //     this.name="zhangsan"
+        //     this.age=12
+        //     this.play=function(){
+
+        //     }
+        // }
+
+        // var obj1=new person()
+
+        // class stu{
+        //     constructor(){
+        //         this.name="zhangsan"
+        //         this.age=12
+        //     }
+
+        //     eat(){
+        //         console.log()
+        //     }
+        // }
+
+        // var obj2=new stu()
+
+        // for(var i in obj2){
+        //     console.log(i)
+        // }
+
+    </script>
+</body>
+</html>

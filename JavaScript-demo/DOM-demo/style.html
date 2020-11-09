@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        // JavaScript操作html的样式（CSS）
+
+        // html运行css的方式 1.嵌入  2.外部  3.行内
+        // 行内样式优先级最高  所以JavaScript 设置行内样式最保险
+        // 3种方式设置，会获取原来的样式，获取元素的样式。获取什么地
+        //      方的样式最保险,没有办法确定获取什么地方的样式，因为不知道设置
+        //      样式的时候设置在什么地方
+
+
+        
+        window.onload=function(){
+            // 获取样式
+            var div=document.querySelector("div")
+            // console.log(div.style.width)
+
+            // 有宽度，获取不到，不在行内设置时，获取的方法
+            getComputedStyle(div,null)["width"]
+
+
+            // 设置样式  用行内
+            div.style.backgroundColor="blue"
+
+        }
+
+    </script>
+    <div style="background-color: green;"></div>
+</body>
+</html>

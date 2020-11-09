@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clock</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background: #2e1f27;
+        }
+        p{
+            color: #854d27;
+        }
+        code{
+            color: #f4c950;
+        }
+        .clock {
+            --clock-width: 50vmin;
+            width: var(--clock-width);
+            height: var(--clock-width);
+            position: relative;
+            overflow: hidden;
+            border: 6px solid #f4c950;
+            border-radius: 50%;
+        }
+        .clock:after {
+            content: '';
+            position: absolute;
+            z-index: 10;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: #d0b8ac;
+            border-radius: 50%;
+        }
+        .scaleContainer {
+            --scale-width: 2px;
+            margin: 0;
+            padding: 0;
+            width: var(--scale-width);
+            height: calc(var(--clock-width) / 2 + 4px);
+            position: absolute;
+            bottom: calc(var(--clock-width) / 2);
+            left: calc((var(--clock-width) - var(--scale-width)) / 2);
+            /*background: #f4c950;*/
+            transform-origin: center bottom;
+        }
+        .scaleContainer:nth-of-type(5n + 5) {
+            --scale-width: 5px;
+            width: var(--scale-width);
+            left: calc((var(--clock-width) - var(--scale-width)) / 2);
+        }
+        .scale{
+            height: calc(var(--clock-width) / 22);
+            background: #f4c950;
+        }
+        .scaleContainer:nth-of-type(5n + 5) .scale{
+            height: calc(var(--clock-width) / 16);
+        }
+        .hand {
+            --hand-width: 4px;
+            --hand-length: calc(var(--clock-width) / 2 - 6px);
+            width: var(--hand-width);
+            height: var(--hand-length);
+            background: #d0b8ac;
+            position: absolute;
+            bottom: calc(var(--clock-width) / 2);
+            left: calc((var(--clock-width) - var(--hand-width)) / 2);
+            transform-origin: center bottom;
+            z-index: 20;
+        }
+        .hour-hand{
+            height: 15vmin;
+        }
+        .minute-hand {
+            --hand-height: 20vmin;
+            height: var(--hand-height);
+        }
+        .second-hand {
+            --hand-width: 2px;
+            width: var(--hand-width);
+            left: calc((var(--clock-width) - var(--hand-width)) / 2);
+        }
+    </style>
+</head>
+<body>
+<div class="clock">
+
+    <div class="hand hour-hand"></div>
+    <div class="hand minute-hand"></div>
+    <div class="hand second-hand"></div>
+</div>
+<p>Responsive dimension via CSS <code>cal</code> and <code>var</code>.</p>
+
+<script>
+    const $clock = document.querySelector('.clock');
+    for (let i = 1; i <= 60; i++) {
+        const $scaleContainer = document.createElement('p');
+        $scaleContainer.classList.add('scaleContainer');
+        $scaleContainer.style.transform = `rotate(${6 * i}deg)`;
+        const $scale = document.createElement('div');
+        $scale.classList.add('scale');
+        // $scale.textContent = `${i}`;
+        $scaleContainer.appendChild($scale);
+        $clock.appendChild($scaleContainer);
+    }
+
+    const $hourHand = document.querySelector('.hour-hand');
+    const $minuteHand = document.querySelector('.minute-hand');
+    const $secondHand = document.querySelector('.second-hand');
+
+    function tick() {
+        const date = new Date();
+        const CS = date.getSeconds();
+        const Sdeg = CS / 60 * 360;
+        const CM = date.getMinutes();
+        const Mdeg = CM / 60 * 360 + 360 / 60 / 60 * CS;
+        const Hdeg = date.getHours() / 12 * 360 + 360 / 12 / 60 * CM + 360 / 12 / 60 / 60 * CS;
+        $hourHand.style.transform = `rotate(${Hdeg}deg)`;
+        $minuteHand.style.transform = `rotate(${Mdeg}deg)`;
+        $secondHand.style.transform = `rotate(${Sdeg}deg)`;
+    }
+
+    tick();
+
+    setInterval(tick, 1000);
+</script>
+</body>
+</html>

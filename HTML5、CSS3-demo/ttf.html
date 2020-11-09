@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: yahei;
+            src: url(MonacoYahei.ttf);
+        }
+        @font-face {
+  font-family: 'iconfont';  /* project id 1917945 */
+  src: url('http://at.alicdn.com/t/font_1917945_ifjgj6wwzv.eot');
+  src: url('http://at.alicdn.com/t/font_1917945_ifjgj6wwzv.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_1917945_ifjgj6wwzv.woff2') format('woff2'),
+  url('http://at.alicdn.com/t/font_1917945_ifjgj6wwzv.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_1917945_ifjgj6wwzv.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_1917945_ifjgj6wwzv.svg#iconfont') format('svg');
+        }
+        @font-face {
+  font-family: 'iconfont-b';
+  src: url('font_1917945_85me3sgatyv/iconfont.eot');
+  src: url('font_1917945_85me3sgatyv/iconfont.eot?#iefix') format('embedded-opentype'),
+      url('font_1917945_85me3sgatyv/iconfont.woff2') format('woff2'),
+      url('font_1917945_85me3sgatyv/iconfont.woff') format('woff'),
+      url('font_1917945_85me3sgatyv/iconfont.ttf') format('truetype'),
+      url('font_1917945_85me3sgatyv/iconfont.svg#iconfont') format('svg');
+}
+        .one{
+            font-family: 'yahei';
+            font-size: 20px;
+        }
+        .two{
+            font-family: 'iconfont';
+            font-size: 20px;
+        }
+        .three{
+            font-family: 'iconfont-b';
+            font-size: 20px;
+        }
+        .five {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" href="./font_1917945_85me3sgatyv/iconfont.css">
+    <script src="./font_1917945_85me3sgatyv/iconfont.js"></script>
+</head>
+<body>
+    <!-- 本地 -->
+    <div class="one">
+        Hello World!
+    </div>
+    <!-- Unicode  链接 -->
+    <div class="two">
+        &#xe60e;
+    </div>
+    <!-- Unicode  本地 -->
+    <div class="three">
+        &#xe6a2;
+    </div>
+    <!-- font-class -->
+    <div class="iconfont icon-aixin"></div>
+    <!-- Symbol -->
+    <svg class="five" aria-hidden="true">
+        <use xlink:href="#icon-06"></use>
+    </svg>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .out{
+            width: 200px;height: 200px;
+            background-color: red;
+            margin-left: 200px;
+            border: 10px solid blue;
+            padding: 10px;
+        }
+        .inner{
+            width: 100px;height: 100px;
+            background-color: green;
+            margin-left: 50px;
+            position: absolute;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="out">
+        <div class="inner"></div>
+    </div>
+    <script>
+        /*
+        javascript对html CSs 对内容、属性、样式
+        样式进行操作
+        样式里面(元素位置，元素的尺寸)
+
+        位置:
+        offsetLeft值的规则
+
+        CSS
+        如果一个元素没有设置position属性，那么他的left, top相对于
+        具有定位属性的父元素，没有定位属性的父元素，body
+
+        如果一个元素position属性值是relative, left,top相对于
+        他自己原来的位置
+
+        如果说一个元素posiTion属性值是absolute , left, top
+        相对于具有定位属性的父元素，如果没有定位属性的父元素，body
+
+        如果说一个元素position属性值是 fixed,left ,top,相
+        对于浏览器窗口的
+
+        一个元素默认的position属性: static
+
+        */
+
+
+        var out=document . querySelector(".out") ;
+        var inner=document.querySelector(".inner");
+
+
+        // console.log(getComputedStyle(div,null).left);    //在对应CSS样式中获取
+        // console.log(inner.offsetLeft)                    //获取真实位置
+
+        // console.log(out.offsetWidth);                    //获取真实宽度，包含width+边框+内边距
+        // console.log (getComputedStyle(out,null).width);  //在对应CSS样式获取
+
+        
+    </script>
+</body>
+</html>

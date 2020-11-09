@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            position: fixed;
+        }
+        span{
+            float: right;
+            width: 25px;
+            height: 25px;
+            border: 1px solid blue;
+            text-align: center;
+            line-height: 25px;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>×</span>
+    </div>
+
+    <script src="animate.js"></script>
+    <script>
+        var box=document.querySelector(".box")
+        var cld=document.querySelector("span")
+        var speedx=10
+        var speedy=10
+
+        function move(){
+            
+            var left=box.offsetLeft
+            var top=box.offsetTop
+            var lefts=left+speedx
+            var tops=top+speedy
+
+            if (tops>document.documentElement.
+            clientHeight-box.offsetHeight){
+                tops=document.documentElement.
+                clientHeight-box.offsetHeight ;
+                speedy=-speedy;
+            }
+            if (tops<0){
+                tops=0;
+                speedy=-speedy ;
+            }
+
+            if (lefts>document.documentElement.
+            clientWidth-box.offsetWidth){
+                lefts=document.documentElement.
+                clientWidth-box.offsetWidth ;
+                speedx=-speedx;
+            }
+            if (lefts<0){
+                lefts=0;
+                speedx=-speedx ;
+            }
+
+            box.style.left=lefts+"px"
+            box.style.top=tops+"px"
+
+        }
+        
+        var t=setInterval(move,40)
+
+        box.onmouseover=function(){
+            clearInterval(t)
+        }
+        box.onmouseout=function(){
+            t=setInterval(move,40)
+        }
+
+        var flag=true
+        cld.onclick=function(){
+            if(flag){
+                box.onmouseout=null
+                this.innerHTML="□"
+                animate(box,{
+                    width:150,height:40,
+                    left:document.documentElement.clientWidth-180,
+                    top:document.documentElement.clientHeight-70
+                },500)
+                flag=false
+            }else{
+                this.innerHTML="×"
+                animate(box,{
+                    width:200,
+                    height:200,
+                    left:0,
+                    top:0
+                },500,Tween.Linear,function(){
+                    t=setInterval(move,40)
+                    box.onmouseout=function(){
+                        t=setInterval(move,40)
+                    }
+                })
+                flag=true
+            }
+            
+        }
+    </script>
+</body>
+</html>

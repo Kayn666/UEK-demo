@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="window"></div>
+    <script src="./animate.js"></script>
+    <script src="./wheel.js"></script>
+    <script>
+        new wheel(".window",{
+            imgs:["https://aecpm.alicdn.com/simba/img/TB1W4nPJFXXXXbSXpXXSutbFXXX.jpg","https://aecpm.alicdn.com/simba/img/TB1_JXrLVXXXXbZXVXXSutbFXXX.jpg","https://img.alicdn.com/tps/i4/TB16Ixxb2zO3e4jSZFxSuuP_FXa.jpg"],
+            imgColor:["#e5e5e5","#e5e5e5","#e5e5e5"],
+            links:["https://baidu.com","https://sxuek.com","https://tmall.com"],
+            imgSize:[1130,500],
+            btnColor:"red",
+            btnActive:"blue",
+            btnPos:["center","20"]
+        },{
+            time:3,
+            eachTime:2,
+            runStyle:"Tween.Linear"
+        })
+    </script>
+</body>
+</html>

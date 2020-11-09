@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hammerDemo</title>
+    <script src="./hammer-min.js"></script>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div=document.querySelector("div")
+        var hammertime=new Hammer(div)
+
+        var startx
+        hammertime.on('panstart',function(ev){
+            startx=div.offsetLeft
+        })
+        hammertime.on('panleft',function(ev){
+            div.style.left=startx+ev.deltaX+"px"
+        })
+        hammertime.on('panright',function(ev){
+            div.style.left=startx+ev.deltaX+"px"
+        })
+    </script>
+</body>
+</html>

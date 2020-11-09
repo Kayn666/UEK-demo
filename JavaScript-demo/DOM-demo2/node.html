@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="one">已有的div</div>
+    <span class="two">我是span</span>
+    <script>
+        /*
+        1.
+        获取元素
+        操作内容属性样式  动画也好，操作位置、尺寸、滚动条  页面当中现有的元素
+        2.不存在元素?
+        动态的添加元素删除元素  查询元素  修改元素
+
+        */
+        //动态的添加元素   两步执行
+        //JavaScript除了document document.body
+        // 其它所有元素，都得通过相应方法来获取
+
+
+
+        // 如何插入一个元素
+        // var div=document.createElement("div")
+        // div.innerHTML="我是新的div"
+        // div.style.cssText="width:200px;height:200px;border:1px solid red"
+        // // document.body.appendChild(div)
+        // // document.body.appendChild()   追加到父元素的最后
+
+        // var div1=document.querySelector("div")
+        // document.body.insertBefore(div,div1)
+        // // 父元素.insertBefore(插入的元素，之前的元素)   插入到某个元素之前
+
+        
+
+
+
+        // 如何创建新的属性
+        // var span=document.createElement("span")
+        // // span.setAttribute("aa","bb")
+
+
+        // var aa=document.createAttribute("aa")
+        // aa.nodeValue="bb"
+        // span.setAttributeNode(aa)
+
+
+        // document.body.appendChild(span)
+
+
+
+
+
+
+
+        // 如何动态的删除一个元素
+        // 父元素.removeChild(子元素)
+        // var div=document.querySelector("div")
+
+        // document.onclick=function(){
+        //     document.body.removeChild(div)
+        // }
+
+
+
+
+
+
+        // 如何替换一个元素
+        // 父元素.replaceChild(要替换的元素,被替换的元素)
+
+        // var div=document.querySelector("div")
+        // // var span=document.querySelector("span")
+
+        // // document.body.replaceChild(span,div)    //用已有span替换掉div，以前的span会删除
+
+        // var ul=document.createElement("ul")
+
+        // document.body.replaceChild(ul,div)   //用新创建的ul替换div
+
+
+
+
+
+
+        // 如何克隆一个元素
+        var div=document.querySelector("div")
+        var newdiv=div.cloneNode(true)
+        // 若设置true,则会讲内容也全部克隆下来,不穿参数则只克隆本身
+        document.body.appendChild(newdiv)
+        // 克隆之后仍需插入
+
+
+
+        // 总结
+        //         方法	                                                描述
+        // document.createElement()	                                创建一个元素节点
+        // document.createTextNode()	                            创建一个文本节点
+        // parent.appendChild(子节点)	                            插入一个子节点
+        // parent.insertBefore(要插入的节点, 插入到某个元素之前)	  插入到某个节点之前
+        // parent.removeChild(子节点)	                            删除子节点
+        // parent.replaceChild(新节点,被修改的节点)	                替换节点
+        // node.cloneNode(boolean)	                                克隆节点
+            </script>
+</body>
+</html>

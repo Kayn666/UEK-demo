@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  
+ <head>
+ <meta charset="UTF-8">
+ <title></title>
+ <style>
+ .box {
+ height: 200px;
+ width: 200px;
+ background-color: cyan;
+ position: absolute;
+ }
+ </style>
+ </head>
+  
+ <body>
+ <div class="box">
+  
+ </div>
+ </body>
+ <script>
+	var box = document.querySelector(".box");
+	//鼠标按下的函数
+    box.onmousedown = function(ev) {
+		var oEvent = ev || event;
+		//求出鼠标和box的位置差值
+		//clientX返回当事件被触发时，鼠标指针的水平坐标。
+		//clientY返回当事件被触发时，鼠标指针的垂直坐标。
+		//offsetX,offsetY 发生事件的地点在事件源元素的坐标系统中的 x 坐标和 y 坐标。
+		var x = oEvent.clientX - box.offsetLeft;
+		var y = oEvent.clientY - box.offsetTop;
+		//鼠标移动的函数
+		//把事件加在document上，解决因为鼠标移动太快时，
+		//鼠标超过box后就没有了拖拽的效果的问题
+ 		document.onmousemove = function(ev) {
+  			var oEvent = ev || event;
+  			//保证拖拽框一直保持在浏览器窗口内部，不能被拖出的浏览器窗口的范围
+  			//div左边距离浏览器左边框的距离
+		 	var l = oEvent.clientX - x;
+		 	//div上边距离浏览器上边框的距离
+		  	var t = oEvent.clientY - y;
+		  	if(l < 0) 
+		  	{
+		  		l = 0;
+		  	} 
+		  	//保证不超过浏览器右边边框
+		  	else if(l > document.documentElement.clientWidth - box.offsetWidth)
+		  	{
+  				l = document.documentElement.clientWidth - box.offsetWidth;
+  			}
+		  	if(t < 0) 
+		  	{
+		  		t = 0;
+		  	}
+		  	//保证浏览器不超过下边边框
+		  	else if(t > document.documentElement.clientHeight - box.offsetHeight)
+		  	{
+		  		t = document.documentElement.clientHeight - box.offsetHeight;
+		  	}
+  			box.style.left = l + "px";
+  			box.style.top = t + "px";
+ 		}
+	 	//鼠标抬起的函数
+	 	document.onmouseup = function()
+	 	{
+	  	document.onmousemove = null;
+	  	document.onmouseup = null;
+ 		}
+ 		//火狐浏览器在拖拽空div时会出现bug
+ 		//return false阻止默认事件，解决火狐的bug
+ 		return false;
+  	}
+ </script>
+  
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,ul,li{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .top{
+            width: 100%;
+            height: 30px;
+            background: #ccc;
+            margin-bottom: 20px;
+        }
+        .banner{
+            width: 100%;
+            height: 400px;
+            border: 1px solid red;
+        }
+        .brand{
+            width: 1230px;
+            height: 400px;
+            border: 1px solid red;
+            margin: 20px auto;
+        }
+        .list{
+            width: 1230px;
+            height: 400px;
+            border: 1px solid red;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 30px;
+        }
+        .search{
+            width: 100%;
+            height: 40px;
+            background: rgba(255,0,0,.8);
+            position: fixed;
+            left: 0;
+            top: -50px;
+            text-align: center;
+            transition: top 0.5s ease;
+        }
+        .nav{
+            width: 50px;
+            height: 350px;
+            opacity: 0;
+            overflow: hidden;
+            position: fixed;
+            left: 70px;
+            border: 1px solid #000;
+            transition: all 1s ease;
+            transform: scale(0,0);
+            transform-origin: left bottom;
+        }
+        .nav li{
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid #000;
+            box-sizing: border-box;
+            cursor: pointer;
+            text-align: 50px;
+        }
+        .nav li[color=red]:hover{
+            background: red !important;
+        }
+        .nav li[color=orange]:hover{
+            background: orange !important;
+        }
+        .nav li[color=yellow]:hover{
+            background: yellow !important;
+        }
+        .nav li[color=green]:hover{
+            background: green !important;
+        }
+        .nav li[color=blue]:hover{
+            background: blue !important;
+        }
+        .nav li[color=purple]:hover{
+            background: purple !important;
+        }
+        .bottom{
+            width: 100%;
+            height: 1000px;
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="search">搜索</div>
+    <div class="top"></div>
+    <div class="banner"></div>
+    <div class="brand"></div>
+    <div class="list">11111</div>
+    <div class="list">22222</div>
+    <div class="list">33333</div>
+    <div class="list">44444</div>
+    <div class="list">55555</div>
+    <div class="list">66666</div>
+    <div class="bottom"></div>
+
+    <!-- 使用锚链接的话无过度效果 -->
+    <ul class="nav">
+        <li color="red">1</li>
+        <li color="orange">2</li>
+        <li color="yellow">3</li>
+        <li color="green">4</li>
+        <li color="blue">5</li>
+        <li color="purple">6</li>
+        <li class="back-top">顶部</li>
+    </ul>
+
+    <script src="animate.js"></script>
+    <script>
+        // 滚动条    
+
+
+        var search=document.querySelector(".search")
+        var nav=document.querySelector(".nav")
+        nav.style.top=(document.documentElement.clientHeight-nav.offsetHeight)/2+"px"
+
+        // 滚动事件
+        window.onscroll=function(){
+            // 搜索框
+            var st=document.documentElement.scrollTop
+            if(st>200){
+                search.style.top=0
+            }else{
+                search.style.top="-50px"
+            }
+            if(st>400){
+                nav.style.transform="scale(1,1)"
+                nav.style.opacity=1
+            }else{
+                nav.style.transform="scale(0,0)"
+                nav.style.opacity=0
+            }
+
+            for(var i=0;i<navList.length;i++){
+
+                if(navList[i].top<st&&navList[i].top+navList[i].height>st){
+                    for(var j=0;j<navList.length;j++){
+                        navList[j].style.background="none"
+                        navList[i].style.flag=false
+                    }
+                    navList[i].style.background=navList[i].getAttribute("color")
+                }
+            }
+        }
+            
+        
+
+        // 侧边栏点击转到操作
+
+        // 点击的时候滚动条要去的位置
+        var navList=document.querySelectorAll(".nav li:not(.back-top)")
+        var navLast=document.querySelectorAll(".back-top")[0]
+
+        var conList=document.querySelectorAll(".list")
+
+        navLast.onclick=function(){
+            animate(document.documentElement,{
+                    scrollTop:0
+                },500)
+        }
+
+        for(var i=0;i<navList.length;i++){
+            // 首先获取每一个楼层所在的位置
+            navList[i].top=conList[i].offsetTop
+
+            navList[i].height=conList[i].offsetHeight
+
+            navList[i].onclick=function(){
+                animate(document.documentElement,{
+                    scrollTop:this.top
+                },500)
+            }
+
+        }
+        
+    </script>
+</body>
+</html>

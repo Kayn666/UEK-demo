@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端轮播图</title>
+    <script src="./hammer-min.js"></script>
+    <style>
+       body{
+           padding: 0;
+           margin: 0;
+       }
+       .win{
+           width: 100%;
+           height: 300px;
+           position: relative;
+           overflow: hidden;
+       }
+       .box{
+           width: 400%;
+           height: 100%;
+           position: absolute;
+           left: 0;
+           top: 0;
+           display: flex;
+       }
+       .list{
+           width: 25%;
+           height: 100%;
+           line-height: 300px;
+       }
+       .list:nth-child(1){
+           background: url(./images/banner1.jpg);
+           background-size: cover;
+           background-position: center;
+       }
+       .list:nth-child(2){
+           background: url(./images/banner2.jpg);
+           background-size: cover;
+           background-position: center;
+       }
+       .list:nth-child(3){
+           background: url(./images/banner3.jpg);
+           background-size: cover;
+           background-position: center;
+       }
+       .list:nth-child(4){
+           background: url(./images/banner4.jpg);
+           background-size: cover;
+           background-position: center;
+       }
+    </style>
+</head>
+<body>
+    <div class="win">
+        <div class="box">
+            <div class="list"></div>
+            <div class="list"></div>
+            <div class="list"></div>
+            <div class="list"></div>
+        </div>
+    </div>
+
+    <script>
+        var box=document.querySelector(".box")
+        var hammertime=new Hammer(box)
+        var startx
+        hammertime.on('panstart',function(ev){
+            box.style.transition="none"
+            startx=box.offsetLeft
+        })
+        hammertime.on('panleft',function(ev){
+            box.style.left=startx+ev.deltaX+"px"
+        })
+        hammertime.on('panright',function(ev){
+            box.style.left=startx+ev.deltaX+"px"
+        })
+        var num=0
+        var clentW=document.documentElement.clientWidth
+        hammertime.on('panend',function(ev){
+            if(ev.distance<200){
+                box.style.transition="left .5s ease"
+                box.style.left=-num*clentW+"px"
+            }else{
+                if(ev.offsetDirection==2){
+                    num++
+                    if(num>3){
+                        num=3
+                    }
+                }else if(ev.offsetDirection==4){
+                    num--
+                    if(num<0){
+                        num=0
+                    }
+                }
+                box.style.transition="left .5s ease"
+                box.style.left=-num*clentW+"px"
+            }
+        })
+    </script>
+</body>
+</html>

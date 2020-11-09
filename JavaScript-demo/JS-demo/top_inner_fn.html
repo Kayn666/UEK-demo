@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ecmascript  内置的顶层函数
+
+
+
+        // String();  将任何类型的数据都转换为字符串  强制转换
+
+        // var a = true
+        // console.log(String(a)==="true")
+
+
+        // Number();  将某些类型的数据转换为数值类型
+
+            // 布尔转换为数值类型  ture:1     false:0
+            // console.log(Number(ture));
+
+            // 字符串转换为数值类型   NaN  (not a number)   必须是包含合法数值类型的字符串
+            // undefined  NaN   null: 0
+
+        
+        // boolean()  强制将所有类型的数据转换为布尔值
+            //false:   false  0  ""   null  undefined  NaN
+            // 剩下的都会转为true
+
+
+        // ixNaN()   判读一个数据类型是否为NaN  是的话为true,否则为false
+
+
+        // parseInt( )  parseFloat( ) 
+        //转换规则Number() 强大
+
+        var str="123abc"
+        console.log(parseInt(str))     //输出结果为123，parseInt()只解析能解析到的部分
+
+        var str="ff"
+        console.log(parseInt(str,16))    //将str识别为16进制数并转换为整数型
+
+    </script>
+</body>
+</html>

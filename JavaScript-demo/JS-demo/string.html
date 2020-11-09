@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //对象去看，现实当中的思维模式，认知事务的规律。
+
+        var str="abcdefascdsfzzafsafdhgdvzxaczcxzdvscvsdalakjoajlzjczljflsj"
+        //从以上字符串当中找到"a"出现的次数以及出现的位置，并且全部记录下来，并且输出到控制台
+        var num=0
+        var info=""
+        var index=0
+        while((index=str.indexOf("a",index))>=0){
+            info+=index+","
+            num++
+            index++
+        }
+        console.log("一共出现了"+num+"次,出现的位置在："+info.slice(0,-1))
+    </script>
+</body>
+</html>

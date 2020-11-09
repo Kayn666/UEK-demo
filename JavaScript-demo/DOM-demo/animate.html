@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮">
+    <div style="width: 200px; height: 200px; background: red;"></div>
+    <script>
+        // 动画  setInterval   怎么操作更简单   animate
+        // 帧率  电脑屏幕的刷新率60赫兹  1秒钟刷新60次  16
+
+
+
+        // 中间算法
+
+        var btn=document.querySelector("input")
+        var div=document.querySelector("div")
+
+        btn.onclick=function(){
+            animate(div,"width",400,5,function(){
+                animate(div,"width",200,-5)
+            })
+            animate(div,"height",400,5,function(){
+                animate(div,"height",200,-5)
+            })
+        }
+
+        
+        function animate(obj,attr,end,speed,callback){
+            var t=setInterval(function(){
+                var start=parseInt(getComputedStyle(obj,null)[attr])
+                var val=start+speed
+                if(speed>0){
+                    if(val>end){
+                        val=end
+                        clearInterval(t)
+                        if(callback){
+                            callback()
+                        }
+                    }
+                }else{
+                    if(val<end){
+                        val=end
+                        clearInterval(t)
+                        if(callback){
+                            callback()
+                        }
+                    }
+                }
+                obj.style[attr]=val+"px"
+            },50)
+        }
+    </script>
+</body>
+</html>

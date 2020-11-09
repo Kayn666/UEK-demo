@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .box{
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        background-color: burlywood;
+    }
+    .box::after{
+        content:"";
+        display: block;
+        clear: both;
+    }
+    .item1{
+        width: 540px;
+        height: 360px;
+        float: left;
+        background-color: red;
+    }
+    .item2{
+        width: 540px;
+        height: 360px;
+        float: right;
+        background-color: blue;
+    }
+    @media screen and (max-width: 1200px){
+        .box{
+            width: 100%;
+        }
+        .item1{
+            width: 45%;
+            height: auto;
+            padding-top: 30%;
+        }
+        .item2{
+            width: 45%;
+            height: auto;
+            padding-top: 30%;
+        }
+    }
+    @media screen and (max-width: 960px){
+        .box{
+            width: 720px;
+        }
+    }
+    @media screen and (max-width: 720px){
+        .box{
+            width: 480px;
+        }
+        .item1{
+            width: 90%;
+            padding-top: 60%;
+            margin: 0 auto;
+            float: none;
+        }
+        .item2{
+            width: 90%;
+            padding-top: 60%;
+            margin: 0 auto;
+            float: none;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item1"></div>
+        <div class="item2"></div>
+    </div>
+</body>
+</html>

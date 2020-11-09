@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 操作属性
+
+
+        // 原生属性
+        // 对象.属性名 = "属性值"   对象.className = "类名"
+
+        // div.id = "box"
+        // input.name = "age"
+
+
+        // 对象.setAttribute(属性名,属性值)	设置属性
+        // 对象.getAttribute(属性名)	获取属性
+        // 对象.removeAttribute(属性名)	删除属性
+        // 对象.hasAttribute(属性名)	检测属性
+
+
+        // 1.html自带属性
+        window.onload=function(){
+            var link = document.querySelector("a")
+            var imgs = document.querySelector("img")
+            // console.log(link.href)
+            link.href="http://baidu.com"
+            imgs.src="头像1.png"
+        }
+
+
+        // 2.自定义的属性
+        var last=document.getElementsByClassName("last")[0]
+        last.setAttribute("aa","bb")
+    </script>
+    <a href="http://uekedu.com">链接</a>
+    <img src="" alt="">
+    <div class="last">
+
+    </div>
+</body>
+</html>

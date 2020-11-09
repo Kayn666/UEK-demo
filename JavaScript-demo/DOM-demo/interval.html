@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮">
+    <div style="width: 200px; height: 200px; background: red;"></div>
+    <script>
+         // 定时器  在指定时间内，不断的运行指定的程序
+        // setInterval(函数，时间（毫秒）)
+        // setInterval(function(){ },3000)
+
+        // 自动切换效果
+
+        //一个按钮 有一个200x200div 按钮的时候，div以5px/50ms的
+            // 速度不断增加他的宽高，到宽高达到400x400的时候，再以相同的速度缩小
+            // 他的宽高，到200x200的时候， 定时器停止
+
+
+        // 动画   基础算法
+
+        var btn=document.querySelector("input")
+        var div=document.querySelector("div")
+        var speed=5
+        var flag=true
+        btn.onclick=function(){
+            if(!flag){
+                return;
+            }
+            flag=false
+            var t=setInterval(function(){
+                var width=parseInt(getComputedStyle(div,null).width)
+                var height=parseInt(getComputedStyle(div,null).height)
+
+                var widths=width+5
+                var heights=height+5
+                if(width>400){
+                    widths=400
+                    heights=400
+                    clearInterval(t)
+                    var t1=setInterval(function(){
+                        var width=parseInt(getComputedStyle(div,null).width)
+                        var height=parseInt(getComputedStyle(div,null).height)
+
+                        var widths=width-5
+                        var heights=height-5                 
+                        if(width<200){
+                            widths=200
+                            heights=200
+                            clearInterval(t1)
+                            flag=true
+                        }
+                        div.style.width=widths+"px"
+                        div.style.height=heights+"px"
+                    },50)
+                }
+                div.style.width=widths+"px"
+                div.style.height=heights+"px"
+                
+            },50)
+        }
+
+
+    </script>
+</body>
+</html>
